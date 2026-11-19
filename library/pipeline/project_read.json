@@ -1,0 +1,38 @@
+{
+ "name": "Projects: read a file",
+ "group": "projects",
+ "objective": "The text of one file of a project.",
+ "params": {
+  "project": {
+   "label": "Project",
+   "hint": "its short name (slug), as project_list gives it"
+  },
+  "file": {
+   "label": "File",
+   "hint": "path inside the project, as project_files lists it"
+  }
+ },
+ "steps": [
+  {
+   "id": "do",
+   "type": "project",
+   "needs": [
+    "project",
+    "file"
+   ],
+   "gives": [
+    "result"
+   ],
+   "keep": true,
+   "config": {
+    "call": "read",
+    "as": "agent:local",
+    "args": {
+     "project": "{project}",
+     "file": "{file}"
+    },
+    "give": "result"
+   }
+  }
+ ]
+}

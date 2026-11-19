@@ -1,0 +1,39 @@
+{
+ "name": "Projects: the issues",
+ "group": "projects",
+ "objective": "A project's issue rows (from its issue tables): id, file, status and the other columns. With a status, only those.",
+ "params": {
+  "project": {
+   "label": "Project",
+   "hint": "its short name (slug), as project_list gives it"
+  },
+  "status": {
+   "label": "Only this status",
+   "default": "",
+   "hint": "open, built, test, proposal or done; empty for all"
+  }
+ },
+ "steps": [
+  {
+   "id": "do",
+   "type": "project",
+   "needs": [
+    "project",
+    "status"
+   ],
+   "gives": [
+    "result"
+   ],
+   "keep": true,
+   "config": {
+    "call": "issues",
+    "as": "agent:local",
+    "args": {
+     "project": "{project}",
+     "status": "{status}"
+    },
+    "give": "result"
+   }
+  }
+ ]
+}

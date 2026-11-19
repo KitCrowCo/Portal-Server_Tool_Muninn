@@ -1,0 +1,37 @@
+{
+ "name": "Projects: find lines",
+ "group": "projects",
+ "objective": "The lines of a project's files that hold a text (any case), with file and line number.",
+ "params": {
+  "project": {
+   "label": "Project",
+   "hint": "its short name (slug), as project_list gives it"
+  },
+  "text": {
+   "label": "Text to find"
+  }
+ },
+ "steps": [
+  {
+   "id": "do",
+   "type": "project",
+   "needs": [
+    "project",
+    "text"
+   ],
+   "gives": [
+    "result"
+   ],
+   "keep": true,
+   "config": {
+    "call": "search",
+    "as": "agent:local",
+    "args": {
+     "project": "{project}",
+     "text": "{text}"
+    },
+    "give": "result"
+   }
+  }
+ ]
+}

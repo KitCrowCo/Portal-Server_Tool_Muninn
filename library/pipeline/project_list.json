@@ -1,0 +1,23 @@
+{
+ "name": "Projects: which ones",
+ "group": "projects",
+ "objective": "The projects this assistant may see, for the person who asked: short name, name and what each is about.",
+ "params": {},
+ "steps": [
+  {
+   "id": "do",
+   "type": "project",
+   "needs": [],
+   "gives": [
+    "result"
+   ],
+   "keep": true,
+   "config": {
+    "call": "list",
+    "as": "agent:local",
+    "args": {},
+    "give": "result"
+   }
+  }
+ ]
+}

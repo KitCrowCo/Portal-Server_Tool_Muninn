@@ -1,0 +1,44 @@
+{
+ "name": "Projects: change an issue's status",
+ "group": "projects",
+ "objective": "An issue's status changed in its table (kept as a proposal unless this assistant may write directly).",
+ "params": {
+  "project": {
+   "label": "Project",
+   "hint": "its short name (slug), as project_list gives it"
+  },
+  "id": {
+   "label": "Issue id",
+   "hint": "like I-03"
+  },
+  "status": {
+   "label": "New status",
+   "hint": "open, built, test, proposal or done"
+  }
+ },
+ "steps": [
+  {
+   "id": "do",
+   "type": "project",
+   "needs": [
+    "project",
+    "id",
+    "status"
+   ],
+   "gives": [
+    "result"
+   ],
+   "keep": true,
+   "config": {
+    "call": "issue_status",
+    "as": "agent:local",
+    "args": {
+     "project": "{project}",
+     "id": "{id}",
+     "status": "{status}"
+    },
+    "give": "result"
+   }
+  }
+ ]
+}

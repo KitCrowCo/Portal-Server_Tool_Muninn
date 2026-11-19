@@ -1,0 +1,50 @@
+{
+ "name": "Projects: propose a file",
+ "group": "projects",
+ "objective": "A new or changed file for a project, whole. Unless this assistant may write it directly, it is kept as a proposal the project's owner accepts or declines; the file stays as it was until then.",
+ "params": {
+  "project": {
+   "label": "Project",
+   "hint": "its short name (slug), as project_list gives it"
+  },
+  "file": {
+   "label": "File",
+   "hint": "path inside the project"
+  },
+  "text": {
+   "label": "The whole new text of the file",
+   "type": "long"
+  },
+  "why": {
+   "label": "Why",
+   "hint": "one or two sentences the owner reads before deciding"
+  }
+ },
+ "steps": [
+  {
+   "id": "do",
+   "type": "project",
+   "needs": [
+    "project",
+    "file",
+    "text",
+    "why"
+   ],
+   "gives": [
+    "result"
+   ],
+   "keep": true,
+   "config": {
+    "call": "propose",
+    "as": "agent:local",
+    "args": {
+     "project": "{project}",
+     "file": "{file}",
+     "text": "{text}",
+     "why": "{why}"
+    },
+    "give": "result"
+   }
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "name": "Projects: list the files",
+ "group": "projects",
+ "objective": "The files of one project this assistant may read.",
+ "params": {
+  "project": {
+   "label": "Project",
+   "hint": "its short name (slug), as project_list gives it"
+  }
+ },
+ "steps": [
+  {
+   "id": "do",
+   "type": "project",
+   "needs": [
+    "project"
+   ],
+   "gives": [
+    "result"
+   ],
+   "keep": true,
+   "config": {
+    "call": "files",
+    "as": "agent:local",
+    "args": {
+     "project": "{project}"
+    },
+    "give": "result"
+   }
+  }
+ ]
+}

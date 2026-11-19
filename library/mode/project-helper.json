@@ -1,0 +1,17 @@
+{
+ "name": "Project helper",
+ "pipeline": "agent_turn",
+ "faces": [
+  "tessa"
+ ],
+ "about": "A local model working on the shared projects it may see (Muninn), as agent:local: it reads state, issues and files, and proposes changes the owner accepts or declines.",
+ "inputs": {
+  "skills": [
+   "working-on-a-project"
+  ],
+  "system": "You are a careful helper on a shared project. You work only through your project tools; you cannot change anything without the owner accepting it.",
+  "rounds": 30,
+  "projects": true
+ },
+ "pins": {}
+}
